@@ -2,8 +2,11 @@
 ![Diagrama UML Parqueadero](https://github.com/user-attachments/assets/375e1671-d8a6-4b72-8811-75afec999830)
 >Diagrama UML Parqueadero
 
-Cambios que se realizo desde el ultimo Diagrama UML: 
-- Relación entre Parqueadero, Piso y Plaza:
+## [Carpeta.java](https://github.com/R0yalCode/Parqueadero/tree/develop/Parqueadero "Carpeta.java"): 
+Esta carpeta te redirige a los archivos .java necesarios para poder ejecutar el proyecto localmente. 
+
+### Cambios que se realizo desde el ultimo Diagrama UML: 
+#### - Relación entre Parqueadero, Piso y Plaza:
 
 **Antes:**
 
@@ -18,7 +21,7 @@ Cada Piso ahora tiene una agregación con múltiples Plazas.
 
 ---
 
--  Herencia de Vehículo:
+#### -  Herencia de Vehículo:
 
 **Antes:**
 
@@ -38,7 +41,7 @@ Bicicleta (con atributo tieneLuzReflejante).
 
 ---
 
-- Manejo de usuarios (Usuario):
+#### - Manejo de usuarios (Usuario):
 
 **Antes:**
 
@@ -56,7 +59,7 @@ Visitante (con tiempoUso como atributo específico).
 
 ---
 
-- Empleado y sus subclases:
+#### - Empleado y sus subclases:
 
 **Antes:**
 
@@ -74,7 +77,7 @@ Cajero, con el método realizarPago y un atributo registroPagos.
 
 ---
 
-- Reserva y manejo de pagos:
+#### - Reserva y manejo de pagos:
 
 **Antes:**
 
@@ -92,7 +95,7 @@ Se agregó la clase Pago, con atributos como monto, fecha, y la enumeración met
 
 ---
 
-- Suscripción:
+#### - Suscripción:
 
 **Antes:**
 
@@ -106,7 +109,7 @@ Se agregó la clase Suscripción, con atributos como estado, fechaInicio, y fech
 
 ---
 
-- Métodos y funcionalidad:
+#### - Métodos y funcionalidad:
 
 **Antes:**
 
@@ -124,7 +127,7 @@ Cajero: realizarPago.
 
 ---
 
-- Relación entre Dirección y Parqueadero:
+#### - Relación entre Dirección y Parqueadero:
 
 **Antes:**
 
