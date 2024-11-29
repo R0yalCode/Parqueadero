@@ -2,7 +2,7 @@
 ![Diagrama_UML_Parqueadero](https://github.com/user-attachments/assets/6acd3cd7-3803-45c0-9c4c-7af6a8a2b59a)
 >Diagrama UML Parqueadero
 
-## [Carpeta.java](https://github.com/R0yalCode/Parqueadero/tree/develop/Parqueadero "Carpeta.java"): 
+## [Carpeta.java](https://github.com/R0yalCode/Parqueadero/tree/main/Parqueadero): 
 Esta carpeta te redirige a los archivos .java necesarios para poder ejecutar el proyecto localmente. 
 
 ## Cambios en el Diagrama de Clases
