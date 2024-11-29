@@ -1,5 +1,5 @@
 # Parqueadero
-![Diagrama UML Parqueadero](https://github.com/user-attachments/assets/375e1671-d8a6-4b72-8811-75afec999830)
+![Diagrama_UML_Parqueadero](https://github.com/user-attachments/assets/6acd3cd7-3803-45c0-9c4c-7af6a8a2b59a)
 >Diagrama UML Parqueadero
 
 ## [Carpeta.java](https://github.com/R0yalCode/Parqueadero/tree/develop/Parqueadero "Carpeta.java"): 
