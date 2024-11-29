@@ -5,137 +5,63 @@
 ## [Carpeta.java](https://github.com/R0yalCode/Parqueadero/tree/develop/Parqueadero "Carpeta.java"): 
 Esta carpeta te redirige a los archivos .java necesarios para poder ejecutar el proyecto localmente. 
 
-### Cambios que se realizo desde el ultimo Diagrama UML: 
-#### - Relación entre Parqueadero, Piso y Plaza:
+## Cambios en el Diagrama de Clases
 
-**Antes:**
+A continuación se detallan los principales cambios introducidos en la actualización del diagrama de clases:
 
-Había una relación directa entre Parqueadero y Plaza.
+### 1. Nuevas Clases Añadidas
 
+- **Vehiculo**: Se introducen las subclases **Bicicleta**, **Automovil** y **Motocicleta**, especializando los atributos con características propias, como `tieneLuzReflejante` y `numeroPuertas`.
+  
+- **Factura**: Para gestionar detalles de facturación, como `fechaEmision`, `montoTotal` y `cliente`.
 
-**Ahora:**
+- **Pago**: Relacionada con la clase **Factura** y **Cajero** para registrar pagos, con atributos como `monto` y `fecha`.
 
-Se corrigió la relación para incluir una composición entre Parqueadero y Piso.
+- **Boleto**: Representa los boletos emitidos, con atributos como `codigo` y `suscripcionActiva`, e incluye el método `consultarSuscripcion()`.
 
-Cada Piso ahora tiene una agregación con múltiples Plazas.
+- **Suscripcion**: Relaciona al **ClienteRegular** con información de suscripciones, incluyendo `fechaInicio`, `precio` y métodos como `activarSuscripcion()` y `cancelarSuscripcion()`.
 
----
+### 2. Nuevas Interfaces
 
-#### -  Herencia de Vehículo:
+- **IParqueadero**: Define operaciones relacionadas con el manejo del parqueadero, tales como `registrarVehiculo()`, `liberarPlaza()` y `verificarPlazaOcupada()`.
 
-**Antes:**
+- **InteraccionCliente**: Gestiona las interacciones de los empleados con los clientes, con métodos como `gestionarEntrada()` y `consultarDisponibilidad()`.
 
-El tipo de vehículo (Automóvil, Motocicleta, Bicicleta) se manejaba con una enumeración.
+### 3. Nuevos Atributos
 
+- **Persona**: Se añade el atributo `fechaNacimiento`.
+  
+- **Empleado**: Se incorporan nuevos métodos como `gestionarEntrada()` y `gestionarSalida()`.
 
-**Ahora:**
+### 4. Nuevas Relaciones
 
-Se implementó una generalización desde la clase Vehículo hacia las subclases:
+- **Parqueadero**: Se establece una relación con **Cliente**, diferenciando entre los tipos **ClienteRegular** y **Visitante**.
 
-Automóvil (con atributo numeroPuertas).
+- Se agrega una asociación entre **Pago** y **Factura**, para vincular los detalles de las transacciones.
 
-Motocicleta.
+- **ClienteRegular**: Tiene una relación directa con **Suscripcion** para gestionar los estados de sus membresías.
 
-Bicicleta (con atributo tieneLuzReflejante).
+### 5. Enumeraciones Actualizadas
 
+- Se añadió una nueva enumeración llamada **MetodoPago** con los valores: `EFECTIVO`, `TRANSFERENCIA` y `TARJETA`.
 
----
+### 6. Cambios en Cardinalidades
 
-#### - Manejo de usuarios (Usuario):
+- La relación entre **Plaza** y **Piso** ha sido redefinida como una relación de "uno a muchos" (1..*).
+  
+- **Plaza** ahora está asociada directamente con **TipoVehiculo**.
 
-**Antes:**
+### 7. Métodos Específicos Añadidos
 
-No había una separación clara entre ClienteRegular y Visitante.
+- **ClienteRegular**: Se añadió el método `consultarDescuento()`.
 
+- **Supervisor** y **Cajero**: Se incluyen los métodos `asignarPlaza()` y `realizarPago()`.
 
-**Ahora:**
 
-Usuario es una clase base con una generalización hacia:
 
-ClienteRegular (con métodoPago y una asociación con Suscripción y Reserva).
 
-Visitante (con tiempoUso como atributo específico).
 
 
----
 
-#### - Empleado y sus subclases:
 
-**Antes:**
 
-Existía una clase Empleado sin una jerarquía ni métodos relevantes.
-
-
-**Ahora:**
-
-Empleado se divide en:
-
-Supervisor, con métodos como asignarPlaza, registrarEntrada, y registrarSalida.
-
-Cajero, con el método realizarPago y un atributo registroPagos.
-
-
----
-
-#### - Reserva y manejo de pagos:
-
-**Antes:**
-
-La clase Reserva no tenía relación con las Plazas ni un flujo claro de pago.
-
-No había una clase explícita para pagos.
-
-
-**Ahora:**
-
-Reserva está asociada a una Plaza específica y vinculada al ClienteRegular.
-
-Se agregó la clase Pago, con atributos como monto, fecha, y la enumeración metodoPago (EFECTIVO, TRANSFERENCIA, TARJETA).
-
-
----
-
-#### - Suscripción:
-
-**Antes:**
-
-La relación de suscripción no estaba representada.
-
-
-**Ahora:**
-
-Se agregó la clase Suscripción, con atributos como estado, fechaInicio, y fechaFin, relacionada con ClienteRegular.
-
-
----
-
-#### - Métodos y funcionalidad:
-
-**Antes:**
-
-Muchas clases carecían de métodos para representar sus acciones.
-
-
-**Ahora:**
-
-Se incorporaron métodos relevantes en:
-
-Supervisor: asignarPlaza, registrarEntrada, registrarSalida.
-
-Cajero: realizarPago.
-
-
----
-
-#### - Relación entre Dirección y Parqueadero:
-
-**Antes:**
-
-Dirección tenía una asociación débil con Parqueadero.
-
-
-**Ahora:**
-
-Se reforzó la relación, manteniéndola como una agregación, ya que una Dirección describe la ubicación de un Parqueadero.
-
----
