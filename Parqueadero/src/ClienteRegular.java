@@ -1,12 +1,14 @@
-public class ClienteRegular extends Usuario {
-    private String metodoPago;
+class ClienteRegular extends Cliente {
+    private float descuento;
 
-    // Getters y setters
-    public String getMetodoPago() {
-        return metodoPago;
+    public ClienteRegular(String cedula, short fechaNacimiento, String tipoCliente, float descuento) {
+        super(cedula, fechaNacimiento, tipoCliente);
+        this.descuento = descuento;
     }
 
-    public void setMetodoPago(String metodoPago) {
-        this.metodoPago = metodoPago;
+    public void consultarDescuento() {
+        System.out.println("Descuento disponible: " + descuento);
     }
+
+    // Getters y Setters
 }

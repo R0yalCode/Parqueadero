@@ -1,12 +1,10 @@
-public class Bicicleta extends Vehiculo {
-    private boolean tieneLuzReflejante;
+class Bicicleta extends Vehiculo {
+    private boolean tieneLuzReflectante;
 
-    // Getters y setters
-    public boolean isTieneLuzReflejante() {
-        return tieneLuzReflejante;
+    public Bicicleta(String matricula, String modelo, String color, boolean tieneLuzReflectante) {
+        super(matricula, modelo, color, TipoVehiculo.BICICLETA);
+        this.tieneLuzReflectante = tieneLuzReflectante;
     }
 
-    public void setTieneLuzReflejante(boolean tieneLuzReflejante) {
-        this.tieneLuzReflejante = tieneLuzReflejante;
-    }
+    // Getters y Setters
 }

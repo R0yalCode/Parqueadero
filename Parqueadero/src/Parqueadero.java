@@ -1,32 +1,53 @@
-import java.util.List;
-
-public class Parqueadero {
+class Parqueadero implements IParqueadero {
     private String nombre;
     private long telefono;
     private List<Piso> pisos;
 
-    // Getters y setters
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
+    public Parqueadero(String nombre, long telefono) {
         this.nombre = nombre;
-    }
-
-    public long getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(long telefono) {
         this.telefono = telefono;
+        this.pisos = new ArrayList<>();
     }
 
-    public List<Piso> getPisos() {
-        return pisos;
+    public void agregarPiso(Piso piso) {
+        pisos.add(piso);
     }
 
-    public void setPisos(List<Piso> pisos) {
-        this.pisos = pisos;
+    @Override
+    public void registrarVehiculo() {
+        // Implementación
     }
+
+    @Override
+    public void eliminarVehiculo() {
+        // Implementación
+    }
+
+    @Override
+    public void registrarIngreso() {
+        // Implementación
+    }
+
+    @Override
+    public void registrarEgreso() {
+        // Implementación
+    }
+
+    @Override
+    public void asignarPlaza() {
+        // Implementación
+    }
+
+    @Override
+    public void liberarPlaza() {
+        // Implementación
+    }
+
+    @Override
+    public boolean verificarPlazaOcupada() {
+        // Implementación
+        return false;
+    }
+
+    // Getters y Setters
 }

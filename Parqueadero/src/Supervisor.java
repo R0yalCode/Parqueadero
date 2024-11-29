@@ -1,13 +1,14 @@
-public class Supervisor extends Empleado {
+class Supervisor extends Empleado {
+    private boolean autorizaciones;
+
+    public Supervisor(String cedula, short fechaNacimiento, int identificacion, float salario, boolean autorizaciones) {
+        super(cedula, fechaNacimiento, identificacion, salario);
+        this.autorizaciones = autorizaciones;
+    }
+
     public void asignarPlaza() {
-        // Implementación
+        System.out.println("Asignando plaza...");
     }
 
-    public void registrarEntrada() {
-        // Implementación
-    }
-
-    public void registrarSalida() {
-        // Implementación
-    }
+    // Getters y Setters
 }
