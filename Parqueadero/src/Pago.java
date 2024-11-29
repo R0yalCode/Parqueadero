@@ -1,23 +1,13 @@
-import java.util.Date;
-
-public class Pago {
+class Pago {
     private float monto;
     private Date fecha;
+    private MetodoPago metodoPago;
 
-    // Getters y setters
-    public float getMonto() {
-        return monto;
-    }
-
-    public void setMonto(float monto) {
+    public Pago(float monto, Date fecha, MetodoPago metodoPago) {
         this.monto = monto;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
         this.fecha = fecha;
+        this.metodoPago = metodoPago;
     }
+
+    // Getters y Setters
 }

@@ -1,98 +1,47 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear un parqueadero
-        Parqueadero parqueadero = new Parqueadero();
-        parqueadero.setNombre("Royal Parking");
-        parqueadero.setTelefono(981654321);
+        // Crear parqueadero y pisos
+        Parqueadero parqueadero = new Parqueadero("Parqueadero Central", 123456789L);
+        Piso piso1 = new Piso(1);
+        Piso piso2 = new Piso(2);
+        parqueadero.agregarPiso(piso1);
+        parqueadero.agregarPiso(piso2);
 
-        // Crear pisos y plazas
-        List<Piso> pisos = new ArrayList<>();
-        Piso piso1 = new Piso();
-        piso1.setNumero(1);
-
-        List<Plaza> plazasPiso1 = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
-            Plaza plaza = new Plaza();
-            plaza.setNumero(i);
-            plaza.setDisponibilidad(true);
-            plaza.setTipoPlaza(i % 2 == 0 ? "Automóvil" : "Motocicleta");
-            plazasPiso1.add(plaza);
-        }
-        piso1.setPlazas(plazasPiso1);
-
-        pisos.add(piso1);
-        parqueadero.setPisos(pisos);
+        // Crear plazas
+        Plaza plaza1 = new Plaza(101, true, TipoVehiculo.AUTOMOVIL);
+        Plaza plaza2 = new Plaza(102, false, TipoVehiculo.MOTOCICLETA);
+        piso1.agregarPlaza(plaza1);
+        piso1.agregarPlaza(plaza2);
 
         // Crear vehículos
-        Automovil automovil = new Automovil();
-        automovil.setMatricula("LDC-573");
-        automovil.setModelo("Toyota Corolla");
-        automovil.setColor("Rojo");
-        automovil.setNumeroPuertas(4);
+        Automovil auto1 = new Automovil("ABC123", "Toyota Corolla", "Rojo", 4);
+        Motocicleta moto1 = new Motocicleta("XYZ789", "Honda", "Negro");
 
-        Bicicleta bicicleta = new Bicicleta();
-        bicicleta.setMatricula("LTA-456");
-        bicicleta.setModelo("Montaña");
-        bicicleta.setColor("Azul");
-        bicicleta.setTieneLuzReflejante(true);
+        // Registrar vehículos en el parqueadero
+        parqueadero.registrarVehiculo();
+        System.out.println("Vehículo registrado: " + auto1.getModelo());
+        System.out.println("Vehículo registrado: " + moto1.getModelo());
 
-        // Crear usuarios
-        ClienteRegular clienteRegular = new ClienteRegular();
-        clienteRegular.setTipoUsuario("Regular");
-        clienteRegular.setMetodoPago("Tarjeta");
+        // Crear cliente y asignar plaza
+        Cliente clienteRegular = new ClienteRegular("1234567890", (short) 1995, "Regular", 10.0f);
+        ((ClienteRegular) clienteRegular).consultarDescuento();
+        parqueadero.asignarPlaza();
+        System.out.println("Plaza asignada al cliente: " + clienteRegular.getTipoCliente());
 
-        Visitante visitante = new Visitante();
-        visitante.setTipoUsuario("Visitante");
-        visitante.setTiempoUso(2.5f);
+        // Crear empleado y gestionar entrada
+        Empleado supervisor = new Supervisor("9876543210", (short) 1985, 101, 1500.0f, true);
+        supervisor.gestionarEntrada();
 
-        // Crear empleados
-        Supervisor supervisor = new Supervisor();
-        supervisor.setIdentificacion(1);
-        supervisor.setSalario(1500.0f);
+        // Crear pago y factura
+        Pago pago = new Pago(15.50f, new Date(), MetodoPago.TARJETA);
+        Factura factura = new Factura(new Date(), "Uso de plaza 101", clienteRegular);
+        factura.calcularTotal();
+        factura.emitirFactura();
 
-        Cajero cajero = new Cajero();
-        cajero.setIdentificacion(8);
-        cajero.setSalario(1200.0f);
-
-        // Registrar un pago
-        Pago pago = new Pago();
-        pago.setMonto(10.5f);
-        pago.setFecha(new Date());
-
-        System.out.println("=== SISTEMA DE PARQUEADERO ===");
-        System.out.println("Parqueadero: " + parqueadero.getNombre());
-        System.out.println("Teléfono: " + parqueadero.getTelefono());
-        System.out.println("\n--- Pisos y Plazas ---");
-        for (Piso piso : parqueadero.getPisos()) {
-            System.out.println("Piso: " + piso.getNumero());
-            for (Plaza plaza : piso.getPlazas()) {
-                System.out.println("Plaza #" + plaza.getNumero() + " - Tipo: " + plaza.getTipoPlaza() +
-                        " - Disponible: " + plaza.isDisponibilidad());
-            }
-        }
-
-        System.out.println("\n--- Vehículos ---");
-        System.out.println("Automóvil: " + automovil.getModelo() + " - Matrícula: " + automovil.getMatricula());
-        System.out.println("Bicicleta: " + bicicleta.getModelo() + " - Matrícula: " + bicicleta.getMatricula());
-
-        System.out.println("\n--- Usuarios ---");
-        System.out.println("Cliente Regular: " + clienteRegular.getTipoUsuario() +
-                " - Método de Pago: " + clienteRegular.getMetodoPago());
-        System.out.println("Visitante: " + visitante.getTipoUsuario() +
-                " - Tiempo de Uso: " + visitante.getTiempoUso() + " horas");
-
-        System.out.println("\n--- Empleados ---");
-        System.out.println("Supervisor - Identificacion: " + supervisor.getIdentificacion() +
-                " - Salario: $" + supervisor.getSalario());
-        System.out.println("Cajero - Identificacion: " + cajero.getIdentificacion() +
-                " - Salario: $" + cajero.getSalario());
-
-
-        System.out.println("\n--- Pago ---");
-        System.out.println("Monto: $" + pago.getMonto() + " - Fecha: " + pago.getFecha());
+        // Imprimir detalles
+        System.out.println("Monto total factura: " + factura.getMontoTotal());
+        System.out.println("Método de pago: " + pago.getMetodoPago());
     }
 }
