@@ -1,30 +1,13 @@
-public class Plaza {
+class Plaza {
     private int numero;
     private boolean disponibilidad;
-    private String tipoPlaza;
+    private TipoVehiculo tipoVehiculo;
 
-    // Getters y setters
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
+    public Plaza(int numero, boolean disponibilidad, TipoVehiculo tipoVehiculo) {
         this.numero = numero;
-    }
-
-    public boolean isDisponibilidad() {
-        return disponibilidad;
-    }
-
-    public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
+        this.tipoVehiculo = tipoVehiculo;
     }
 
-    public String getTipoPlaza() {
-        return tipoPlaza;
-    }
-
-    public void setTipoPlaza(String tipoPlaza) {
-        this.tipoPlaza = tipoPlaza;
-    }
+    // Getters y Setters
 }

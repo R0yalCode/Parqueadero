@@ -1,21 +1,27 @@
-public abstract class Empleado {
-    private int identificacion;
-    private float salario;
+class Empleado extends Persona implements InteraccionCliente {
+    protected int identificacion;
+    protected float salario;
 
-    // Getters y setters
-    public int getIdentificacion() {
-        return identificacion;
-    }
-
-    public void setIdentificacion(int identificacion) {
+    public Empleado(String cedula, short fechaNacimiento, int identificacion, float salario) {
+        super(cedula, fechaNacimiento);
         this.identificacion = identificacion;
-    }
-
-    public float getSalario() {
-        return salario;
-    }
-
-    public void setSalario(float salario) {
         this.salario = salario;
     }
+
+    @Override
+    public void gestionarEntrada() {
+        System.out.println("Gestionando entrada...");
+    }
+
+    @Override
+    public void gestionarSalida() {
+        System.out.println("Gestionando salida...");
+    }
+
+    @Override
+    public void consultarDisponibilidad() {
+        System.out.println("Consultando disponibilidad de plazas...");
+    }
+
+    // Getters y Setters
 }

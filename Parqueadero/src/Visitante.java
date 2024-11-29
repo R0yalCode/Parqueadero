@@ -1,12 +1,10 @@
-public class Visitante extends Usuario {
+class Visitante extends Cliente {
     private float tiempoUso;
 
-    // Getters y setters
-    public float getTiempoUso() {
-        return tiempoUso;
-    }
-
-    public void setTiempoUso(float tiempoUso) {
+    public Visitante(String cedula, short fechaNacimiento, String tipoCliente, float tiempoUso) {
+        super(cedula, fechaNacimiento, tipoCliente);
         this.tiempoUso = tiempoUso;
     }
+
+    // Getters y Setters
 }

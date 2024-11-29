@@ -1,23 +1,15 @@
-import java.util.List;
-
-public class Piso {
+class Piso {
     private int numero;
     private List<Plaza> plazas;
 
-    // Getters y setters
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
+    public Piso(int numero) {
         this.numero = numero;
+        this.plazas = new ArrayList<>();
     }
 
-    public List<Plaza> getPlazas() {
-        return plazas;
+    public void agregarPlaza(Plaza plaza) {
+        plazas.add(plaza);
     }
 
-    public void setPlazas(List<Plaza> plazas) {
-        this.plazas = plazas;
-    }
+    // Getters y Setters
 }
